@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+
+#42form_view1 .wd-flex {
+  flex-wrap: nowrap!important;
+  align-items: start!important;
+}
