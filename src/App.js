@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person'
 
 class App extends Component {
@@ -7,7 +8,7 @@ class App extends Component {
     persons: [
       {id: 'aiuais',name: 'Tigran', age:23},
       {id: 'adntas',name: 'Anna', age:20},
-      {id: 'qwfsqa',name: 'Anna', age:21},
+      {id: 'qwfsqa',name: 'Georg', age:21},
       {id: 'qfwsca',name: 'Hermine', age:44},
     ],
     otherState : 'some other value',
@@ -49,10 +50,15 @@ class App extends Component {
   render() {
 
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'blue'
+      }
     };
 
     let persons = null;
@@ -69,19 +75,37 @@ class App extends Component {
               change={(event) => this.nameChangedHandler(event, person.id)}/>
           })}
         </div>
-      )
+      );
+      style.backgroundColor = 'red';
+      style[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      }
+    }
+
+    let classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push('red');
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push('bold');
     }
 
     return (
-      <div className="App">
-        <h1>Hi, I am react app</h1>
-        <p>This is working!</p>
-        <button style={style} onClick={() => this.tooglePersonHandler('Maximilian!!')}>Switch Name</button>
-        {persons}
-      </div>
+      <StyleRoot >
+        <div className="App">
+          <h1>Hi, I am react app</h1>
+          <p className={classes.join(" ")}>This is working!</p>
+          <button style={style}
+                  onClick={() => this.tooglePersonHandler('Maximilian!!')}>
+            Toggle
+          </button>
+          {persons}
+        </div>
+      </StyleRoot>
     );
     //return React.createElement('div', {className: 'App'}, 'Does it work?' )
   }
 }
 
-export default App;
+export default Radium(App);

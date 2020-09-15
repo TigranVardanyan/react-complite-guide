@@ -2,8 +2,10 @@
   text-align: center;
 }
 
+.red {
+  color: red;
+}
 
-#42form_view1 .wd-flex {
-  flex-wrap: nowrap!important;
-  align-items: start!important;
+.bold {
+  font-weight: bold;
 }
