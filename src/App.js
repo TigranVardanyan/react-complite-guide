@@ -1,6 +1,20 @@
 import React, {Component} from 'react';
 import './App.css';
+
+import styled from "styled-components";
 import Person from './Person/Person'
+
+const StyledButton = styled.button`
+   background-color: ${props => props.alt ? 'red' : 'green'};
+      color: white;
+      border: 1px solid blue;
+      padding: 8px;
+      cursor: pointer;
+      &:hover {
+        background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
+        color: black;
+      }
+`;
 
 class App extends Component {
   state  = {
@@ -49,15 +63,7 @@ class App extends Component {
   render() {
 
     const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'blue'
-      }
+
     };
 
     let persons = null;
@@ -75,11 +81,11 @@ class App extends Component {
           })}
         </div>
       );
-      style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      }
+      //style.backgroundColor = 'red';
+      //style[':hover'] = {
+      //  backgroundColor: 'salmon',
+      //  color: 'black'
+      //}
     }
 
     let classes = [];
@@ -94,10 +100,11 @@ class App extends Component {
         <div className="App">
           <h1>Hi, I am react app</h1>
           <p className={classes.join(" ")}>This is working!</p>
-          <button style={style}
-                  onClick={() => this.tooglePersonHandler('Maximilian!!')}>
-            Toggle
-          </button>
+          <StyledButton
+            alt={this.state.showPersons}
+            onClick={() => this.tooglePersonHandler('Maximilian!!')}>
+            Toggle Persons
+          </StyledButton>
           {persons}
         </div>
     );
