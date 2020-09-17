@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classes from './App.css'
-import Person from './Person/Person'
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
+import Person from '../components/Persons/Person/Person'
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 class App extends Component {
   state  = {
@@ -50,8 +50,7 @@ class App extends Component {
   render() {
 
     let persons = null;
-
-    let btnClass = [classes.Button];
+    let btnClass = '';
 
     if (this.state.showPersons) {
       persons = (
@@ -69,7 +68,7 @@ class App extends Component {
           })}
         </div>
       );
-      btnClass.push(classes.Red)
+      btnClass = classes.Red
     }
 
     let assignClasses = [];
@@ -85,7 +84,7 @@ class App extends Component {
           <h1>Hi, I am react app</h1>
           <p className={assignClasses.join(" ")}>This is working!</p>
           <button
-            className={btnClass.join(" ")}
+            className={btnClass}
             onClick={() => this.tooglePersonHandler('Maximilian!!')}>
             Toggle Persons
           </button>
