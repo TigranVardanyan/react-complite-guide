@@ -4,6 +4,7 @@ import classes from './Person.css'
 
 
 const person = (props) => {
+  console.log('[Person.js] rendering...');
   return (
     <div className={classes.Person}>
       <p onClick={props.click}>I'm a {props.name}, my age is {props.age}</p>
