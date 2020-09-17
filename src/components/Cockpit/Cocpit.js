@@ -3,7 +3,7 @@ import classes from "./Cockpit.scss";
 
 const cockpit = (props) => {
   const assignClasses = [];
-  let btnClass = [];
+  let btnClass = '';
   if (props.showPersons) {
     btnClass = classes.Red;
   }

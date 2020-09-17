@@ -35,7 +35,7 @@ class App extends Component {
     persons.splice(personIndex, 1);
     this.setState({persons: persons});
   };
-  tooglePersonHandler = () => {
+  togglePersonHandler = () => {
     const doesShow = this.state.showPersons;
     this.setState({showPersons: !doesShow});
   };
@@ -56,7 +56,7 @@ class App extends Component {
         <Cockpit
           showPersons={this.state.showPersons}
           persons={this.state.persons}
-          clicked={this.tooglePersonHandler}
+          clicked={this.togglePersonHandler}
         />
         {persons}
       </div>
