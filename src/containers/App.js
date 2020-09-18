@@ -13,7 +13,6 @@ class App extends Component {
       {id: 'aiuais', name: 'Tigran', age: 23},
       {id: 'adntas', name: 'Anna', age: 20},
       {id: 'qwfsqa', name: 'Georg', age: 21},
-      {id: 'qfwsca', name: 'Hermine', age: 44},
     ],
     otherState: 'some other value',
     showPersons: false,
