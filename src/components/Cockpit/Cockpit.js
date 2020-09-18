@@ -3,17 +3,25 @@ import classes from "./Cockpit.scss";
 
 const cockpit = (props) => {
   useEffect(() => {
-    console.log('[Cocpit.js] useEffect')
+    console.log('[Cockpit.js] useEffect')
     // Http request
     setTimeout(()=> {
       alert('Save data to cloud')
-    }, 1000)
+    }, 1000);
+    return () => {
+      console.log('[Cockpit.js] cleanup work in useEffect')
+    }
   }, /*[props.persons]*/ []) // set the second argument to
   // useEffect to call the function when the argument data
   // changes and set an empty array to call
   // when the component is first rendered
 
-
+  useEffect(() => {
+    console.log('[Cockpit.js] 2nd useEffect');
+    return () => {
+      console.log('[Cockpit.js] cleanup work in 2nd useEffect')
+    }
+  })
   const assignClasses = [];
   let btnClass = '';
   if (props.showPersons) {
