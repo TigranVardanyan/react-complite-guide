@@ -5,7 +5,13 @@ const cockpit = (props) => {
   useEffect(() => {
     console.log('[Cocpit.js] useEffect')
     // Http request
-  })
+    setTimeout(()=> {
+      alert('Save data to cloud')
+    }, 1000)
+  }, /*[props.persons]*/ []) // set the second argument to
+  // useEffect to call the function when the argument data
+  // changes and set an empty array to call
+  // when the component is first rendered
 
 
   const assignClasses = [];
