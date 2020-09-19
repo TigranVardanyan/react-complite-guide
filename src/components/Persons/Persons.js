@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 
 import Person from "./Person/Person";
+import AuthContext from "../../context/auth-context"
 
 class Persons extends PureComponent {
   //static getDerivedStateFromProps(props, state) {
