@@ -2,23 +2,9 @@ import React, {Component} from 'react';
 import classes from './Person.css'
 
 import Aux from '../../../hoc/Auxiliary'
-
+import withClass from "../../../hoc/withClass";
 class Person extends Component {
 
-  shouldComponentUpdate(nextProps, nextState) {
-    //console.log('[Person.js] shouldComponentUpdate')
-    //console.log('nextProps', nextProps)
-    //console.group('Person')
-    //console.log('nextProps', nextProps)
-    //console.log('this.props', this.props)
-    //console.groupEnd()
-    //if (nextProps !== this.props) {
-    //  return true;
-    //} else {
-    //  return false
-    //}
-    return true;
-  }
   render() {
     console.log('[Person.js] rendering...');
     //console.log('Person.props', this.props);
@@ -39,4 +25,4 @@ class Person extends Component {
   }
 }
 
-export default Person;
+export default withClass(Person, classes.Person);
